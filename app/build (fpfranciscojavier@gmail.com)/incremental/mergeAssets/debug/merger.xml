@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="19.0.1" >
+        <source path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/build/exploded-aar/com.android.support/appcompat-v7/19.0.1/assets" />
+    </dataSet>
+    <dataSet config="main" >
+        <source path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/main/assets" >
+            <file
+                name="Dota2DB.sqlite"
+                path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/main/assets/Dota2DB.sqlite" />
+            <file
+                name="KPro.otf"
+                path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/main/assets/KPro.otf" />
+            <file
+                name="Realize.otf"
+                path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/main/assets/Realize.otf" />
+            <file
+                name="Rhianne.ttf"
+                path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/main/assets/Rhianne.ttf" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/franciscojavier/Box Sync/Workspace/Dota2/app/src/debug/assets" />
+    </dataSet>
+
+</merger>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.francispro.dota2.app" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.francispro.dota2.app.Main"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.FuerzaActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_fuerza"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.InteligenciaActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_inteligencia"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.AgilidadActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_agilidad"
+            android:screenOrientation="portrait">
+        </activity>
+
+
+        <!-- el comando android:noHistory="true" permite que no se guarde en la memoria por las activity que paso -->
+        <activity
+            android:name="com.francispro.dota2.app.CounterPickActivity"
+            android:noHistory="true"
+            android:label="@string/title_activity_counter_pick"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.cp"
+            android:label="@string/title_activity_cp"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.sp"
+            android:label="@string/title_activity_sp"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.francispro.dota2.app.Informacion"
+            android:label="@string/title_activity_informacion"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>
