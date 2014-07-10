@@ -109,7 +109,10 @@ public class Main extends TabActivity {
             tv = (TextView) vg.getChildAt(1);
 
             //modifica el tamaño de la letra, se relaciona con el archivo values/dimensions.xml
-            tv.setTextSize(tamanio);
+            assert tv != null;
+            if (tv != null) {
+                tv.setTextSize(tamanio);
+            }
 
             //cambia el tipo de fuente por defecto por el que se cargo al "face"
             tv.setTypeface(face);
