@@ -5,11 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-
 import com.francispro.dota2.app.CounterPickActivity;
+import com.francispro.dota2.app.Informacion;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.sql.SQLException;
 
 import static com.francispro.dota2.app.CounterPickActivity.*;
@@ -33,6 +32,7 @@ public class CopyAdapter {
     public static String C_STRONGERPICK = "strongerpick";
     public static String C_IMG_BANNER = "img_banner";
     public static String C_ATRIBUTO = "atributo";
+    public static String C_NINFO = "name_info";
 
     public CopyAdapter(Context context)
     {
@@ -184,6 +184,42 @@ public class CopyAdapter {
         return mReturn;
     }
 
+    public void retriveDataFromInfo(int mPosition)
+    {
+        try {
+            mDbHelper.openDataBase();
+            mDb = mDbHelper.getReadableDatabase();
+        }catch (Exception error){
+            Log.d("Error cursor",error.toString());
+        }
+
+        String q = "SELECT *  FROM personajes WHERE _id = " + mPosition  ;
+        System.out.println(TAG+": Valor de q = "+q);
+        Cursor mCursor = null;
+        try{
+            mCursor = mDb.rawQuery(q, null);
+        }catch (Exception e){
+            Log.d("Error cursor",e.toString() +" - "+q);
+        }
+        if (mCursor.moveToFirst())
+        {
+            String url, cp, sp;
+            do {
+                Informacion.Text_Name.setText(mCursor.getString(mCursor.getColumnIndex(C_NOMBRE)));
+                url = mCursor.getString(mCursor.getColumnIndex(C_IMG_BANNER));
+                Informacion.URL_IMAGEN_INFO = url;
+                Informacion.name_info = mCursor.getString(mCursor.getColumnIndex(C_NINFO));
+
+            } while(mCursor.moveToNext());
+        }
+        else
+        {
+            Log.e("--CopyAdapter : No se encontraron todos los valores buscados",null);
+        }
+        System.out.println(TAG+": Valor de URL_IMAGEN = "+ URL_IMAGEN);
+        mDbHelper.close();
+        mCursor.close();
+    }
 
     public String retriveAdditionalData(int mPosition)
     {

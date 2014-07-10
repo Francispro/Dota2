@@ -34,7 +34,7 @@ public class cp extends ActionBarActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parentView, View iv, int position, long id) {
                 int aux=0;
-                for(int x=0;x<6;x++){
+                for(int x=0;x<CounterPickActivity.largoCP_SP;x++){
                     if(x==position){
                         aux=Counterpcik_id[x];
                         System.out.println(TAG+" Valor aux"+aux);

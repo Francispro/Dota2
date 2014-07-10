@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.francispro.dota2.app.ClasesAdapter.ImageAdapter;
 import com.francispro.dota2.app.ClasesAdapter.ImageAdapterInteligencia;
 
 
@@ -17,8 +18,10 @@ public class InteligenciaActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inteligencia);
 
+
         GridView gv = (GridView)findViewById(R.id.gridViewInteligencia);
         gv.setAdapter(new ImageAdapterInteligencia(getApplicationContext()));
+
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parentView, View iv, int position, long id) {

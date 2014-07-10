@@ -8,10 +8,15 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
-import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.TabHost;
 import android.widget.TextView;
+
+import java.lang.reflect.Field;
 
 
 public class Main extends TabActivity {
@@ -28,6 +33,9 @@ public class Main extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        getOverflowMenu();
 
         Resources res = getResources();
         mTabHost = getTabHost();
@@ -55,7 +63,7 @@ public class Main extends TabActivity {
         //Fuerza tabs
         intent = new Intent(this, FuerzaActivity.class);
         spec = mTabHost.newTabSpec("fuerza")
-                .setIndicator("Fuerza")
+                .setIndicator("Strenght")
                 //.setIndicator("", res.getDrawable(R.drawable.tab_icon))
                 .setContent(intent);
 
@@ -64,7 +72,7 @@ public class Main extends TabActivity {
         //Agilidad tabs
         intent = new Intent(this, AgilidadActivity.class);
         spec = mTabHost.newTabSpec("agilidad")
-                .setIndicator("Agilidad")
+                .setIndicator("Agility")
                 //.setIndicator("", res.getDrawable(R.drawable.tab_icon_agilidad))
                 .setContent(intent);
         mTabHost.addTab(spec);
@@ -72,7 +80,7 @@ public class Main extends TabActivity {
         //Inteligencia tabs
         intent = new Intent(this, InteligenciaActivity.class);
         spec = mTabHost.newTabSpec("inteligencia")
-                .setIndicator("Inteligencia")
+                .setIndicator("Intelligence")
                 //.setIndicator("", res.getDrawable(R.drawable.tab_icon_inteligencia))
                 .setContent(intent);
         mTabHost.addTab(spec);
@@ -85,6 +93,15 @@ public class Main extends TabActivity {
         //crea una variable con un nuevo tipo de fuente, el font tiene que estar en la carpeta assets
         Typeface face = Typeface.createFromAsset(getAssets(), "Realize.otf");
 
+        int tamanio = 0;
+        if(pixels==300)
+        {
+            tamanio = (int)getResources().getDimension(R.dimen.textsize300);
+        }else if(pixels==400){
+            tamanio = (int)getResources().getDimension(R.dimen.textsize400);
+        }else if(pixels==600){
+            tamanio = (int)getResources().getDimension(R.dimen.textsize600);
+        }
 
         // pinta el texto de cada tab al correr la aplicacion
         for (int i = 0; i < mTabHost.getTabWidget().getTabCount(); i++) {
@@ -92,7 +109,7 @@ public class Main extends TabActivity {
             tv = (TextView) vg.getChildAt(1);
 
             //modifica el tamaño de la letra, se relaciona con el archivo values/dimensions.xml
-            tv.setTextSize(getResources().getDimension(R.dimen.textsize));
+            tv.setTextSize(tamanio);
 
             //cambia el tipo de fuente por defecto por el que se cargo al "face"
             tv.setTypeface(face);
@@ -127,5 +144,41 @@ public class Main extends TabActivity {
     public void onBackPressed() {
         finish();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_activity, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.TopWinRate:
+                return true;
+            case R.id.TopPopularity:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void getOverflowMenu() {
+
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if(menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

@@ -8,8 +8,20 @@
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
     <item
+        dex="/Users/franciscojavier/MEGAsync/2014_App/Workspace/Dota2/app/build/intermediates/pre-dexed/debug/classes-47e23ac0be99a2e25ed2b8f14f91adcfd60d4857.jar"
+        jar="/Users/franciscojavier/MEGAsync/2014_App/Workspace/Dota2/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
         dex="/Users/franciscojavier/Dropbox/2014_App/Workspace/Dota2/app/build/intermediates/pre-dexed/debug/androidplot-core-0.6.1-47a1160aafd5e61d9d0d71909a1db633f1cd1e16.jar"
         jar="/Users/franciscojavier/Dropbox/2014_App/Workspace/Dota2/app/src/main/libs/androidplot-core-0.6.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="9573acfc211d7fcb0e3066a72b4ae798cce3096d"/>
+    <item
+        dex="/Users/franciscojavier/MEGAsync/2014_App/Workspace/Dota2/app/build/intermediates/pre-dexed/debug/androidplot-core-0.6.1-d99d177f169bdeaadecbdd0a646cf6b83f45ea3a.jar"
+        jar="/Users/franciscojavier/MEGAsync/2014_App/Workspace/Dota2/app/src/main/libs/androidplot-core-0.6.1.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="9573acfc211d7fcb0e3066a72b4ae798cce3096d"/>

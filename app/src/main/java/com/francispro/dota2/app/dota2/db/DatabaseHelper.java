@@ -20,12 +20,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String TAG = "TAG";
     private static String DB_PATH = "/data/data/com.francispro.dota2.app/databases/";
     private static String DB_NAME = "Dota2DB.sqlite";
+    private static int DB_VERSION = 1;
     private SQLiteDatabase mDataBase;
     private final Context mContext;
 
     public DatabaseHelper(Context context)
     {
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, DB_VERSION);
         DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
         this.mContext = context;
     }
@@ -116,6 +117,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
+
         Log.d(TAG, "UpgradingDatabase, This will drop current database and will recreate it");
     }
 }

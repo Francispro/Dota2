@@ -18,6 +18,7 @@ public class AgilidadActivity extends ActionBarActivity {
 
 
         GridView gv = (GridView)findViewById(R.id.gridViewAgilidad);
+        gv.setAdapter(null);
         gv.setAdapter(new ImageAdapterAgilidad(getApplicationContext()));
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

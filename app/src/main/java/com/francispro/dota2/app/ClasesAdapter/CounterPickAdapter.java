@@ -8,6 +8,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.francispro.dota2.app.CounterPickActivity;
+import com.francispro.dota2.app.Main;
 import com.francispro.dota2.app.R;
 import com.francispro.dota2.app.cp;
 
@@ -28,7 +29,7 @@ public class CounterPickAdapter extends BaseAdapter {
     public int getCount() {
         //numero de elementos que seran mostras en la grilla
         //return imagesFuerza.length;
-        return 6;
+        return CounterPickActivity.largoCP_SP;
     }
 
     @Override
@@ -50,15 +51,19 @@ public class CounterPickAdapter extends BaseAdapter {
         else
         {
             iv = new ImageView(context);
-            if(CounterPickActivity.pixels <= 300) {
+            if(Main.pixels == 300) {
                 //HDPI  = 300  480x800
                 iv.setLayoutParams(new GridView.LayoutParams(100, 80));//ajusta el (ancho,alto) general de las imagenes de la grilla
-            }else {
+            }else if(Main.pixels == 400) {
                 //XHDPI < 400  720x1280
                 iv.setLayoutParams(new GridView.LayoutParams(150, 120));
+            }else if(Main.pixels == 600) {
+                //XHDPI < 400  1080x1920
+                iv.setLayoutParams(new GridView.LayoutParams(220, 160));
             }
+
             iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            iv.setPadding(8,4,8,4);
+            iv.setPadding(8,4,8,4);//ajusta la separacion entre cada una de las imagenes de la grilla
         }
 
 

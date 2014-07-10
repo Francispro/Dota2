@@ -1,10 +1,21 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.francispro.dota2.app.Main" >
-    
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/MnuOpc1"
+        android:title="Opcion1"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_preferences"></item>
+
+    <item
+        android:id="@+id/MnuOpc2"
+        android:title="Opcion2"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_compass"></item>
+    <item
+        android:id="@+id/MnuOpc3"
+        android:title="Opcion3"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_agenda"></item>
 </menu>

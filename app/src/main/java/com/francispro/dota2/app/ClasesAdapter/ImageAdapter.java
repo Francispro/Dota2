@@ -1,12 +1,16 @@
 package com.francispro.dota2.app.ClasesAdapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.francispro.dota2.app.FuerzaActivity;
 import com.francispro.dota2.app.Main;
 import com.francispro.dota2.app.R;
 
@@ -16,7 +20,9 @@ import com.francispro.dota2.app.R;
 public class ImageAdapter extends BaseAdapter {
 
     //imageAdapterFuerza
+    private Context context;
     public static final String TAG = "--ImageAdapterFuerza ";
+
     int[] imagesFuerza = {R.drawable.earthshaker_full,R.drawable.sven_full,R.drawable.tiny_full,R.drawable.kunkka_full
             ,R.drawable.beastmaster_full,R.drawable.dragon_knight_full,R.drawable.clockwerk_full,R.drawable.omniknight_full
             ,R.drawable.huskar_full,R.drawable.alchemist_full,R.drawable.brewmaster_full,R.drawable.treant_full
@@ -27,7 +33,7 @@ public class ImageAdapter extends BaseAdapter {
             ,R.drawable.doom_bringer_full,R.drawable.spirit_breaker_full,R.drawable.lycan_full,R.drawable.chaos_knight_full
             ,R.drawable.undying_full,R.drawable.magnus_full,R.drawable.abaddon_full,R.drawable.phoenix_full};
 
-    private Context context;
+
 
     public ImageAdapter(Context applicationContext){
         context = applicationContext;
@@ -51,6 +57,7 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView iv;
+
         if(convertView!=null){
             iv=(ImageView) convertView;
         }
@@ -75,4 +82,6 @@ public class ImageAdapter extends BaseAdapter {
         iv.setImageResource(imagesFuerza[position]);
         return iv;
     }
+
+
 }

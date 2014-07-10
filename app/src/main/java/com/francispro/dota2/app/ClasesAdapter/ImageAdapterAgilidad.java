@@ -1,6 +1,9 @@
 package com.francispro.dota2.app.ClasesAdapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 
+import com.francispro.dota2.app.FuerzaActivity;
 import com.francispro.dota2.app.Main;
 import com.francispro.dota2.app.R;
 
@@ -53,6 +57,7 @@ public class ImageAdapterAgilidad extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView iv;
+
         if(convertView!=null){
             iv=(ImageView) convertView;
         }
@@ -74,14 +79,11 @@ public class ImageAdapterAgilidad extends BaseAdapter {
             iv.setPadding(8,4,8,4);
         }
 
-        try {
-            iv.setImageResource(imagesAgilidad[position]);
-        }catch (Exception e){
-            Log.d(TAG+" : ",e.toString());
-        }
 
-
-
+        iv.setImageResource(imagesAgilidad[position]);
         return iv;
     }
+
+
+
 }
